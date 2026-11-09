@@ -225,18 +225,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 			<div class="elementor-widget-wrap elementor-element-populated">
 						<div class="elementor-element elementor-element-f66cd72 elementor-widget elementor-widget-wpforms" data-id="f66cd72" data-element_type="widget" data-e-type="widget" data-widget_type="wpforms.default">
 				<div class="elementor-widget-container">
-					<div class="wpforms-container " id="wpforms-7"><form id="wpforms-form-7" class="wpforms-validate wpforms-form wpforms-ajax-form" data-formid="7" method="post" enctype="multipart/form-data" action="/contact-us/" data-token="2c2bee910f2ca059fb52c25a7158ab32" data-token-time="1793495262"><noscript class="wpforms-error-noscript">Please enable JavaScript in your browser to complete this form.</noscript><div class="wpforms-field-container"><div id="wpforms-7-field_0-container" class="wpforms-field wpforms-field-name" data-field-id="0"><label class="wpforms-field-label wpforms-label-hide" for="wpforms-7-field_0">Name <span class="wpforms-required-label">*</span></label><input type="text" id="wpforms-7-field_0" class="wpforms-field-large wpforms-field-required" name="wpforms[fields][0]" placeholder="Enter your name" required></div><div id="wpforms-7-field_1-container" class="wpforms-field wpforms-field-email" data-field-id="1"><label class="wpforms-field-label wpforms-label-hide" for="wpforms-7-field_1">Email <span class="wpforms-required-label">*</span></label><input type="email" id="wpforms-7-field_1" class="wpforms-field-large wpforms-field-required" name="wpforms[fields][1]" placeholder="Enter your email address" spellcheck="false" required></div><div id="wpforms-7-field_3-container" class="wpforms-field wpforms-field-text" data-field-id="3"><label class="wpforms-field-label wpforms-label-hide" for="wpforms-7-field_3">Single Line Text</label><input type="text" id="wpforms-7-field_3" class="wpforms-field-large" name="wpforms[fields][3]" placeholder="Subject"></div>		<div id="wpforms-7-field_4-container" class="wpforms-field wpforms-field-text" data-field-type="text" data-field-id="4">
-			<label class="wpforms-field-label" for="wpforms-7-field_4">Email Message Single</label>
-			<input type="text" id="wpforms-7-field_4" class="wpforms-field-medium" name="wpforms[fields][4]">
-		</div>
-		<div id="wpforms-7-field_2-container" class="wpforms-field wpforms-field-textarea" data-field-id="2"><label class="wpforms-field-label wpforms-label-hide" for="wpforms-7-field_2">Comment or Message <span class="wpforms-required-label">*</span></label><textarea id="wpforms-7-field_2" class="wpforms-field-medium wpforms-field-required" name="wpforms[fields][2]" placeholder="Message" required></textarea></div><script>
-				( function() {
-					const style = document.createElement( 'style' );
-					style.appendChild( document.createTextNode( '#wpforms-7-field_4-container { position: absolute !important; overflow: hidden !important; display: inline !important; height: 1px !important; width: 1px !important; z-index: -1000 !important; padding: 0 !important; } #wpforms-7-field_4-container input { visibility: hidden; } #wpforms-conversational-form-page #wpforms-7-field_4-container label { counter-increment: none; }' ) );
-					document.head.appendChild( style );
-					document.currentScript?.remove();
-				} )();
-			</script></div><!-- .wpforms-field-container --><div class="wpforms-submit-container"><input type="hidden" name="wpforms[id]" value="7"><input type="hidden" name="wpforms[time_token]" value="1793495262.1f84f987dd274de311fd43daa040e6705c87b3dc3debcf8e5157891eca8444cb"><input type="hidden" name="page_title" value="Contact Us"><input type="hidden" name="page_url" value="/contact-us/"><input type="hidden" name="url_referer" value=""><input type="hidden" name="page_id" value="15"><input type="hidden" name="wpforms[post_id]" value="15"><button type="submit" name="wpforms[submit]" id="wpforms-submit-7" class="wpforms-submit" data-alt-text="Sending..." data-submit-text="SEND MESSAGE" aria-live="assertive" value="wpforms-submit">SEND MESSAGE</button><img loading="lazy" decoding="async" src="/wp-content/plugins/wpforms-lite/assets/images/submit-spin.svg" class="wpforms-submit-spinner" style="display: none;" width="26" height="26" alt="Loading"></div></form></div>  <!-- .wpforms-container -->				</div>
+					<div class="wpforms-container " id="wpforms-7"><form class="tpp-contact" action="/api/contact" method="post">
+<div class="tpp-field"><input type="text" name="name" autocomplete="name" placeholder="Enter your name" aria-label="Name" required></div>
+<div class="tpp-field"><input type="email" name="email" autocomplete="email" placeholder="Enter your email address" aria-label="Email" required></div>
+<div class="tpp-field"><input type="tel" name="phone" autocomplete="tel" placeholder="Phone number (optional)" aria-label="Phone number"></div>
+<div class="tpp-field"><input type="text" name="subject" placeholder="Subject" aria-label="Subject"></div>
+<div class="tpp-field"><textarea name="message" rows="5" placeholder="Message" aria-label="Message" required></textarea></div>
+<div class="tpp-turnstile"></div><p class="tpp-feedback" role="status" aria-live="polite"></p>
+<button type="submit" disabled>SEND MESSAGE</button>
+</form></div>  <!-- .wpforms-container -->				</div>
 				</div>
 					</div>
 		</div>
@@ -453,5 +450,29 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 var wpforms_settings = {"val_required":"This field is required.","val_email":"Please enter a valid email address.","val_email_suggestion":"Did you mean {suggestion}?","val_email_suggestion_title":"Click to accept this suggestion.","val_email_restricted":"This email address is not allowed.","val_number":"Please enter a valid number.","val_number_positive":"Please enter a valid positive number.","val_minimum_price":"Amount entered is less than the required minimum.","val_confirm":"Field values do not match.","val_checklimit":"You have exceeded the number of allowed selections: {#}.","val_limit_characters":"{count} of {limit} max characters.","val_limit_words":"{count} of {limit} max words.","val_min":"Please enter a value greater than or equal to {0}.","val_max":"Please enter a value less than or equal to {0}.","val_recaptcha_fail_msg":"Google reCAPTCHA verification failed, please try again later.","val_turnstile_fail_msg":"Cloudflare Turnstile verification failed, please try again later.","val_inputmask_incomplete":"Please fill out the field in required format.","uuid_cookie":"","locale":"en","country":"","country_list_label":"Country list","wpforms_plugin_url":"\/wp-content\/plugins\/wpforms-lite\/","gdpr":"","ajaxurl":"\/wp-admin\/admin-ajax.php","mailcheck_enabled":"1","mailcheck_domains":[],"mailcheck_toplevel_domains":["dev"],"is_ssl":"1","nonce":"2e00caf84d","currency_code":"USD","currency_thousands":",","currency_decimals":"2","currency_decimal":".","currency_symbol":"$","currency_symbol_pos":"left","val_requiredpayment":"Payment is required.","val_creditcard":"Please enter a valid credit card number.","readOnlyDisallowedFields":["captcha","map","content","divider","hidden","html","entry-preview","pagebreak","payment-total"],"error_updating_token":"Error updating token. Please try again or contact support if the issue persists.","network_error":"Network error or server is unreachable. Check your connection or try again later.","token_cache_lifetime":"86400","hn_data":{"7":4},"analytics_composite_field_types":["name","address","date-time","email","password","paypal-commerce"],"analytics_base64":"1","address_field":{"list_countries_without_states":["GB","DE","CH","NL"]}}
 /* ]]> */
 </script>
-	</body>
+	<style id="tpp-contact-style">
+.tpp-contact{width:100%;max-width:100%;margin:0 0 20px}.tpp-contact .tpp-field{margin:0 0 17px}.tpp-contact input,.tpp-contact textarea{display:block;width:100%;max-width:100%;box-sizing:border-box;padding:13px 11px;background:#fff;color:#333;border:1px solid #ddd;border-radius:2px;font:inherit}.tpp-contact textarea{resize:vertical;min-height:105px}.tpp-contact button{display:inline-block;padding:14px 34px;border:1px solid #3a4334;background:transparent;color:#303b2b;font:inherit;cursor:pointer}.tpp-contact button:disabled{opacity:.55;cursor:not-allowed}.tpp-turnstile{margin:15px 0}.tpp-feedback{min-height:1em;margin:10px 0;color:#263b2b}
+</style>
+<script id="tpp-contact-script">
+(function(){
+'use strict';const form=document.querySelector('form.tpp-contact');if(!form)return;
+const status=form.querySelector('.tpp-feedback'),button=form.querySelector('button[type="submit"]');let widgetId=null;
+const loader=document.createElement('script');loader.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';loader.async=true;
+const loaded=new Promise((resolve,reject)=>{loader.onload=resolve;loader.onerror=reject;});document.head.appendChild(loader);
+Promise.all([fetch('/api/contact').then(async r=>{if(!r.ok)throw Error('Contact endpoint unavailable');return r.json()}),loaded])
+.then(([config])=>{if(!config.siteKey||!window.turnstile)throw Error('Turnstile not configured');widgetId=window.turnstile.render(form.querySelector('.tpp-turnstile'),{sitekey:config.siteKey});button.disabled=false;})
+.catch(()=>{status.textContent='Contact form temporarily unavailable. Please call or email us directly.';});
+form.addEventListener('submit',async e=>{e.preventDefault();e.stopImmediatePropagation();const data=new FormData(form);
+const name=String(data.get('name')||'').trim(),email=String(data.get('email')||'').trim(),message=String(data.get('message')||'').trim();
+if(!name||!email||!message){status.textContent='Please provide your name, email, and message.';return;}
+const token=window.turnstile&&widgetId!==null?window.turnstile.getResponse(widgetId):'';
+if(!token){status.textContent='Please complete the spam protection check.';return;}
+data.set('cf-turnstile-response',token);button.disabled=true;status.textContent='Sending...';
+try{const response=await fetch('/api/contact',{method:'POST',body:data});const result=await response.json();if(!response.ok||!result.ok)throw Error(result.error||'Unable to send message');form.reset();status.textContent='Your message has been sent. Thank you.';}
+catch(error){status.textContent=error.message||'Unable to send your message.';}
+finally{window.turnstile.reset(widgetId);button.disabled=false;}
+},true);
+})();
+</script>
+</body>
 </html>

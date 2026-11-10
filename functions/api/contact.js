@@ -13,7 +13,11 @@ export async function onRequestPost({request,env}){
   const name=clean(data.get("name"),100),email=clean(data.get("email"),254),phone=clean(data.get("phone"),40),message=clean(data.get("message"),3000),subject=clean(data.get("subject"),150)||"General inquiry";
   const validEmail=!email||/^\S+@\S+\.\S+$/.test(email);
   const dialablePhone=phone.replace(/[^\d+]/g,"").replace(/(?!^)\+/g,"");
-  if(!name||!message||(!email&&!phone)||!validEmail||(phone&&!/\d{7,}/.test(dialablePhone)))return json({ok:false,error:"Please provide a name, message, and valid email or phone number."},400);
+  if(!name)return json({ok:false,error:"Please enter your name."},400);
+  if(!message)return json({ok:false,error:"Please enter a message."},400);
+  if(!email&&!phone)return json({ok:false,error:"Please provide an email or phone number."},400);
+  if(!validEmail)return json({ok:false,error:"Please enter a valid email address."},400);
+  if(phone&&!/\\d{7,}/.test(dialablePhone))return json({ok:false,error:"Please enter a valid phone number, or leave the optional phone field blank."},400);
   const token=clean(data.get("cf-turnstile-response"),4096);
   if(!token)return json({ok:false,error:"Please complete the spam protection check."},400);
   let verified;

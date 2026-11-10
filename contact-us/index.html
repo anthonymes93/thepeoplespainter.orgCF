@@ -225,14 +225,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 			<div class="elementor-widget-wrap elementor-element-populated">
 						<div class="elementor-element elementor-element-f66cd72 elementor-widget elementor-widget-wpforms" data-id="f66cd72" data-element_type="widget" data-e-type="widget" data-widget_type="wpforms.default">
 				<div class="elementor-widget-container">
-					<div class="wpforms-container " id="wpforms-7"><form class="tpp-contact" action="/api/contact" method="post">
-<div class="tpp-field"><input type="text" name="name" autocomplete="name" placeholder="Enter your name" aria-label="Name" required></div>
-<div class="tpp-field"><input type="email" name="email" autocomplete="email" placeholder="Enter your email address" aria-label="Email" required></div>
-<div class="tpp-field"><input type="tel" name="phone" autocomplete="tel" placeholder="Phone number (optional)" aria-label="Phone number"></div>
-<div class="tpp-field"><input type="text" name="subject" placeholder="Subject" aria-label="Subject"></div>
-<div class="tpp-field"><textarea name="message" rows="5" placeholder="Message" aria-label="Message" required></textarea></div>
-<div class="tpp-turnstile"></div><p class="tpp-feedback" role="status" aria-live="polite"></p>
+					<div class="wpforms-container " id="wpforms-7"><form class="tpp-contact" action="/api/contact" method="post" novalidate>
+<div class="tpp-field"><label for="tpp-name">Your name <span>*</span></label><input id="tpp-name" type="text" name="name" autocomplete="name" placeholder="Enter your name" required></div>
+<div class="tpp-field"><label for="tpp-email">Email address <span>*</span></label><input id="tpp-email" type="email" name="email" autocomplete="email" placeholder="Enter your email address" required></div>
+<div class="tpp-field"><label for="tpp-phone">Phone number <small>(optional)</small></label><input id="tpp-phone" type="tel" name="phone" autocomplete="tel" placeholder="e.g. 250-555-0123" inputmode="tel"></div>
+<div class="tpp-field"><label for="tpp-subject">Subject <small>(optional)</small></label><input id="tpp-subject" type="text" name="subject" placeholder="What can we help with?"></div>
+<div class="tpp-field"><label for="tpp-message">Your message <span>*</span></label><textarea id="tpp-message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea></div>
+<div class="tpp-turnstile"></div>
+<div class="tpp-feedback" role="alert" aria-live="assertive" hidden></div>
 <button type="submit" disabled>SEND MESSAGE</button>
+<div class="tpp-success" role="status" aria-live="polite" hidden><span class="tpp-success-icon" aria-hidden="true">✓</span><h3>Thanks for getting in touch!</h3><p>Your message was sent successfully. The Peoples Painter will be in touch as soon as possible.</p><button type="button" class="tpp-again">Send another message</button></div>
 </form></div>  <!-- .wpforms-container -->				</div>
 				</div>
 					</div>
@@ -451,27 +453,45 @@ var wpforms_settings = {"val_required":"This field is required.","val_email":"Pl
 /* ]]> */
 </script>
 	<style id="tpp-contact-style">
-.tpp-contact{width:100%;max-width:100%;margin:0 0 20px}.tpp-contact .tpp-field{margin:0 0 17px}.tpp-contact input,.tpp-contact textarea{display:block;width:100%;max-width:100%;box-sizing:border-box;padding:13px 11px;background:#fff;color:#333;border:1px solid #ddd;border-radius:2px;font:inherit}.tpp-contact textarea{resize:vertical;min-height:105px}.tpp-contact button{display:inline-block;padding:14px 34px;border:1px solid #3a4334;background:transparent;color:#303b2b;font:inherit;cursor:pointer}.tpp-contact button:disabled{opacity:.55;cursor:not-allowed}.tpp-turnstile{margin:15px 0}.tpp-feedback{min-height:1em;margin:10px 0;color:#263b2b}
+.tpp-contact{width:100%;max-width:100%;margin:0 0 20px;font:inherit}.tpp-contact .tpp-field{margin:0 0 16px}.tpp-contact label{display:block;margin:0 0 6px;font-size:14px;font-weight:600;color:#2b3b30}.tpp-contact label span{color:#b52e36}.tpp-contact label small{font-weight:400;color:#66756d}
+.tpp-contact input,.tpp-contact textarea{display:block;width:100%;max-width:100%;box-sizing:border-box;padding:13px 14px;background:#fff;color:#26322b;border:1px solid #cbd4cf;border-radius:6px;font:inherit;transition:border-color .15s,box-shadow .15s}.tpp-contact input:focus,.tpp-contact textarea:focus{outline:none;border-color:#407f65;box-shadow:0 0 0 3px rgba(64,127,101,.15)}.tpp-contact [aria-invalid=true]{border-color:#bd3441!important;box-shadow:0 0 0 3px rgba(189,52,65,.1)!important}
+.tpp-contact textarea{resize:vertical;min-height:120px}.tpp-contact button[type=submit]{display:inline-block;padding:14px 30px;border:1px solid #314332;background:transparent;color:#293a2b;font:inherit;font-weight:600;cursor:pointer}.tpp-contact button:disabled{opacity:.55;cursor:not-allowed}.tpp-turnstile{margin:17px 0}
+.tpp-contact .tpp-feedback[hidden],.tpp-contact .tpp-success[hidden]{display:none!important}.tpp-contact .tpp-feedback{padding:14px 17px;margin:12px 0 18px;border:1px solid #edb4b9;border-left:4px solid #b52e36;border-radius:7px;background:#fff2f2;color:#8c222e;font-size:14px;font-weight:600;line-height:1.55}
+.tpp-contact .tpp-success{padding:32px 22px;margin:10px 0 25px;text-align:center;border:1px solid #c3dfcf;border-radius:12px;background:#f1faf5;box-shadow:0 6px 24px rgba(30,80,55,.07)}.tpp-contact .tpp-success-icon{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 16px;border-radius:50%;background:#188657;color:white;font-size:34px;font-weight:bold}.tpp-contact .tpp-success h3{margin:0 0 10px;color:#205b40;font-size:25px}.tpp-contact .tpp-success p{margin:0 auto 18px;max-width:420px;color:#365246;line-height:1.6}.tpp-contact .tpp-again{padding:10px 18px;border:1px solid #188657;border-radius:6px;background:white;color:#176544;cursor:pointer;font:inherit;font-weight:600}
 </style>
 <script id="tpp-contact-script">
 (function(){
-'use strict';const form=document.querySelector('form.tpp-contact');if(!form)return;
-const status=form.querySelector('.tpp-feedback'),button=form.querySelector('button[type="submit"]');let widgetId=null;
+'use strict';
+const form=document.querySelector('form.tpp-contact');if(!form)return;
+const status=form.querySelector('.tpp-feedback'),send=form.querySelector('button[type=submit]'),success=form.querySelector('.tpp-success');
+const fields=Array.from(form.querySelectorAll('.tpp-field,.tpp-turnstile,button[type=submit]'));
+let widgetId=null;
+function showError(message,field){status.textContent=message;status.hidden=false;if(field){field.setAttribute('aria-invalid','true');field.focus();}}
+function clearError(){status.hidden=true;status.textContent='';form.querySelectorAll('[aria-invalid]').forEach(el=>el.removeAttribute('aria-invalid'));}
+form.querySelectorAll('input,textarea').forEach(el=>el.addEventListener('input',clearError));
 const loader=document.createElement('script');loader.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';loader.async=true;
 const loaded=new Promise((resolve,reject)=>{loader.onload=resolve;loader.onerror=reject;});document.head.appendChild(loader);
-Promise.all([fetch('/api/contact').then(async r=>{if(!r.ok)throw Error('Contact endpoint unavailable');return r.json()}),loaded])
-.then(([config])=>{if(!config.siteKey||!window.turnstile)throw Error('Turnstile not configured');widgetId=window.turnstile.render(form.querySelector('.tpp-turnstile'),{sitekey:config.siteKey});button.disabled=false;})
-.catch(()=>{status.textContent='Contact form temporarily unavailable. Please call or email us directly.';});
-form.addEventListener('submit',async e=>{e.preventDefault();e.stopImmediatePropagation();const data=new FormData(form);
-const name=String(data.get('name')||'').trim(),email=String(data.get('email')||'').trim(),message=String(data.get('message')||'').trim();
-if(!name||!email||!message){status.textContent='Please provide your name, email, and message.';return;}
-const token=window.turnstile&&widgetId!==null?window.turnstile.getResponse(widgetId):'';
-if(!token){status.textContent='Please complete the spam protection check.';return;}
-data.set('cf-turnstile-response',token);button.disabled=true;status.textContent='Sending...';
-try{const response=await fetch('/api/contact',{method:'POST',body:data});const result=await response.json();if(!response.ok||!result.ok)throw Error(result.error||'Unable to send message');form.reset();status.textContent='Your message has been sent. Thank you.';}
-catch(error){status.textContent=error.message||'Unable to send your message.';}
-finally{window.turnstile.reset(widgetId);button.disabled=false;}
+Promise.all([fetch('/api/contact',{cache:'no-store'}).then(async r=>{if(!r.ok)throw Error('Endpoint unavailable');return r.json()}),loaded])
+.then(([config])=>{if(!config.siteKey||!window.turnstile)throw Error('Turnstile unavailable');widgetId=window.turnstile.render(form.querySelector('.tpp-turnstile'),{sitekey:config.siteKey});send.disabled=false;})
+.catch(()=>showError('The contact form is temporarily unavailable. Please contact us by phone or email.'));
+form.addEventListener('submit',async e=>{
+e.preventDefault();e.stopImmediatePropagation();clearError();
+const data=new FormData(form),name=String(data.get('name')||'').trim(),email=String(data.get('email')||'').trim(),phone=String(data.get('phone')||'').trim(),message=String(data.get('message')||'').trim();
+if(!name){showError('Please enter your name.',form.elements.namedItem('name'));return;}
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){showError('Please enter a valid email address.',form.elements.namedItem('email'));return;}
+if(phone&&phone.replace(/\D/g,'').length<7){showError('Please enter a valid phone number, or leave the optional phone field blank.',form.elements.namedItem('phone'));return;}
+if(!message){showError('Please enter a message.',form.elements.namedItem('message'));return;}
+const token=widgetId!==null&&window.turnstile?window.turnstile.getResponse(widgetId):'';
+if(!token){showError('Please complete the spam protection check.');return;}
+data.set('cf-turnstile-response',token);send.disabled=true;send.textContent='SENDING...';
+try{
+const response=await fetch('/api/contact',{method:'POST',body:data});let result={};try{result=await response.json();}catch{}
+if(!response.ok||!result.ok)throw Error(result.error||'Unable to send your message. Please try again.');
+form.reset();clearError();fields.forEach(el=>el.hidden=true);success.hidden=false;success.scrollIntoView({behavior:'smooth',block:'nearest'});
+}catch(error){showError(error.message||'Unable to send your message. Please try again.');}
+finally{if(widgetId!==null&&window.turnstile)window.turnstile.reset(widgetId);send.disabled=false;send.textContent='SEND MESSAGE';}
 },true);
+form.querySelector('.tpp-again').addEventListener('click',()=>{success.hidden=true;fields.forEach(el=>el.hidden=false);clearError();form.elements.namedItem('name').focus();});
 })();
 </script>
 </body>
